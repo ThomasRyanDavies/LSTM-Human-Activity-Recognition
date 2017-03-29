@@ -107,7 +107,7 @@ def LSTM_Network(feature_mat, config):
     # New feature_mat (hidden) shape: [time_steps*batch_size, n_hidden]
 
     # Split the series because the rnn cell needs time_steps features, each of shape:
-    hidden = tf.split(0, config.n_steps, hidden)
+    hidden = tf.split(axis=0, num_or_size_splits=config.n_steps, value=hidden)
     # New hidden's shape: a list of lenght "time_step" containing tensors of shape [batch_size, n_hidden]
 
     # Define LSTM cell of first hidden layer:
